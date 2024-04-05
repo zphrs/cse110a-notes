@@ -1,0 +1,229 @@
+---
+import { Markdown } from "@astropub/md"
+interface Props {
+  desc: string
+  href: string
+  title: string
+}
+
+const { desc, href, title } = Astro.props
+---
+
+<script>
+  const links = document.querySelectorAll("a.header-preview")
+  links.forEach(link => {
+    link.addEventListener("pointerover", e => {
+      if (!link.classList.contains("visible")) {
+        e.preventDefault()
+        link.classList.add("visible")
+        // stop propagation of the click event
+        e.stopPropagation()
+      }
+    })
+    link.addEventListener("click", e => {
+      if (!link.classList.contains("visible")) {
+        e.preventDefault()
+        link.classList.add("visible")
+        // stop propagation of the click event
+        e.stopPropagation()
+      }
+    })
+  })
+  // toggle the class on hover
+  links.forEach(link => {
+    link.addEventListener("pointerover", ev => {
+      const e = ev as PointerEvent
+      // if it's a touch event, don't add the class
+      if (e.button !== -1) {
+        return
+      }
+      // check if button is pressed
+      if (e.buttons !== 0) {
+        return
+      }
+      link.classList.add("visible")
+    })
+    window.addEventListener("pointerout", ev => {
+      const e = ev as PointerEvent
+      // if target is link or any of its children, don't remove the class
+      if (link.contains(e.target as Node)) {
+        return
+      }
+      link.classList.remove("visible")
+    })
+  })
+  const buttons = document.querySelectorAll("a.header-preview button")
+  buttons.forEach(button => {
+    button.addEventListener("click", e => {
+      e.preventDefault()
+      // stop propagation of the click event
+      e.stopPropagation()
+      const link = button.parentElement?.parentElement?.parentElement
+      link!.classList.remove("visible")
+      // add class close
+      link!.classList.add("close")
+      // listen to window pointerup event
+      const listener = () => {
+        link!.classList.remove("close")
+        window.removeEventListener("pointerout", listener)
+      }
+      window.addEventListener("pointerout", listener)
+    })
+  })
+</script>
+
+<a {href} class='header-preview'>
+  <span><slot /></span>
+  <span class={"desc" + (!desc ? " empty" : "")}>
+    <header>{title} <button>✕</button> {desc && <hr />}</header>
+
+    {desc && <Markdown of={desc} />}
+  </span>
+</a>
+
+<style is:global>
+  .desc ul,
+  .desc ol {
+    padding-left: 1rem;
+  }
+  .desc p {
+    margin-bottom: 0rem;
+    padding-bottom: 0;
+  }
+</style>
+
+<style>
+  a {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+
+  p {
+    padding-bottom: 0.5rem;
+    margin-right: -1.25rem;
+  }
+
+  p:last-child {
+    padding-bottom: 0;
+  }
+
+  a {
+    padding: 0.2rem 0.5rem;
+    border: 1px solid var(--seafoam-50);
+    border-radius: 0.25rem;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  span {
+    display: block;
+  }
+
+  .desc header {
+    background-color: var(--gray-10);
+    position: sticky;
+    color: var(--violet-70);
+    top: -0.25rem;
+    margin-right: -1.5rem;
+    margin-left: -0.25rem;
+    margin-top: -0.25rem;
+    padding: 0.25rem;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+  }
+  .desc header:hover {
+    text-decoration: underline;
+  }
+
+  hr {
+    margin: 0;
+    position: absolute;
+    bottom: 0px;
+    width: calc(100% - 0.5rem);
+    border: 1px solid var(--seafoam-50);
+    margin-top: 0.25rem;
+  }
+
+  button {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.125rem;
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    /* border: 1px solid var(--gray-50); */
+    border: none;
+    border-radius: 0.25rem;
+    color: var(--gray-80);
+    padding: 0.25rem;
+    font-size: 1.2em;
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .desc.empty button {
+    top: 0.5rem;
+  }
+
+  button:hover {
+    background-color: var(--gray-20);
+  }
+
+  button:active {
+    background-color: var(--gray-30);
+  }
+
+  a.close button {
+    display: none;
+  }
+
+  .desc {
+    width: max(13rem, 100%);
+    opacity: 0.5;
+    max-height: 40vh;
+    overflow: scroll;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 0.8em;
+    background-color: rgb(var(--gray-10-rgb), 0.5);
+    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
+    border: 1px solid var(--gray-20);
+    transform: scale(0.7);
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    white-space: normal;
+    opacity: 0;
+    z-index: 1;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease-in-out;
+    transform-origin: 10% 0%;
+    pointer-events: none;
+    padding-right: 1.5rem;
+  }
+  a:hover .desc,
+  a.visible .desc {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: all;
+  }
+  a:hover.close .desc {
+    transform: scale(0.7);
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>

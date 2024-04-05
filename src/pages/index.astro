@@ -1,0 +1,50 @@
+---
+import { getCollection } from "astro:content"
+import Layout from "../layouts/Layout.astro"
+const allPosts = await getCollection("notes")
+import { headersToTree } from "../components/HeaderTrees"
+import HeaderTree from "../components/HeaderTree.astro"
+---
+
+<Layout title='All Notes'>
+  <h1>All Notes</h1>
+  <ul class='headings'>
+    {
+      allPosts.map(async post => {
+        const { headings } = await post.render()
+        headings.forEach(heading => {
+          heading.text = heading.text.trim()
+        })
+        // get the first blurb under the heading using this regex: /^#* .*\n+(\w.*)\n?/gm and get the first group
+        const matches = post.body.match(/#* .*\n+(([^#]|#(?! ))*)/gm) || []
+        const blurbMatches = matches.map(
+          match => match.match(/#* .*\n+(([^#]|#(?! ))*)/) || []
+        )
+        // remove any trailing hashtags
+        blurbMatches.forEach(match => {
+          match[1] = match[1].replace(/#+$/, "")
+        })
+        // only keep the first group
+        const blurb = blurbMatches.map(match => match[1].trim() || "")
+        return (
+          <HeaderTree
+            tree={headersToTree(headings, post.data.title, blurb)}
+            postSlug={post.slug}
+          />
+        )
+      })
+    }
+  </ul>
+</Layout>
+
+<style>
+  .headings {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-left: 1rem;
+    padding-right: 5rem;
+    min-width: min-content;
+  }
+</style>

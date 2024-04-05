@@ -1,0 +1,145 @@
+---
+import HeaderPreview from "./HeaderPreview.astro"
+import type { Tree } from "./HeaderTrees"
+
+interface Props {
+  tree: Tree
+  postSlug: string
+}
+const { tree, postSlug } = Astro.props
+---
+
+{
+  tree.children.length === 0 ? (
+    <li class={`depth-${tree.depth}`}>
+      <HeaderPreview
+        title={tree.text}
+        href={`${import.meta.env.BASE_URL}${postSlug}/#${tree.slug}`}
+        desc={tree.blurb}
+      >
+        {tree.text}
+      </HeaderPreview>
+    </li>
+  ) : (
+    <li class={`depth-${tree.depth}`}>
+      <details open>
+        <summary>
+          <HeaderPreview
+            title={tree.text}
+            href={`${import.meta.env.BASE_URL}${postSlug}/#${tree.slug}`}
+            desc={tree.blurb}
+          >
+            {tree.text}
+          </HeaderPreview>
+        </summary>
+        <ul>
+          {tree.children.map(child => {
+            return <Astro.self tree={child} postSlug={postSlug} />
+          })}
+        </ul>
+      </details>
+    </li>
+  )
+}
+
+<style>
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.25rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-left: 0.5rem;
+    min-width: min-content;
+    border: 1px solid var(--gray-20);
+  }
+  li.depth-1 ul {
+    background-color: var(--seafoam-1);
+    border-color: var(--seafoam-30);
+  }
+  li.depth-2 ul {
+    background-color: var(--violet-1);
+    border-color: var(--violet-30);
+  }
+  li.depth-3 ul {
+    background-color: var(--seafoam-5);
+    border-color: var(--seafoam-40);
+  }
+  li.depth-4 ul {
+    background-color: var(--violet-5);
+    border-color: var(--violet-40);
+  }
+  li.depth-5 ul {
+    background-color: var(--seafoam-10);
+    border-color: var(--seafoam-50);
+  }
+  li.depth-6 ul {
+    background-color: var(--violet-10);
+    border-color: var(--violet-50);
+  }
+  li {
+    min-width: min-content;
+    white-space: nowrap;
+    padding: 0.2rem 0.5rem;
+    display: inline-block;
+  }
+  a {
+    padding: 0.2rem 0.5rem;
+    display: inline-block;
+    border: 1px solid var(--seafoam-50);
+    border-radius: 0.25rem;
+  }
+  li {
+    border-radius: 0.25rem;
+  }
+  ul {
+    border-radius: 0.25rem;
+  }
+  li:has(ul) > details[open] > summary > a {
+    border-radius: 0.25rem 0.25rem 0 0;
+    border-bottom: none;
+  }
+  li.depth-1 > details[open] > summary > a {
+    background-color: var(--seafoam-10);
+  }
+  li.depth-2 > details[open] > summary > a {
+    background-color: var(--seafoam-20);
+  }
+  li.depth-3 > details[open] > summary > a {
+    background-color: var(--seafoam-30);
+  }
+  li.depth-4 > details[open] > summary > a {
+    background-color: var(--seafoam-40);
+  }
+
+  li:has(ul) {
+    flex: 1;
+  }
+  li.depth-1 a {
+    color: var(--violet-90);
+  }
+</style>
+
+<style is:global>
+  li:has(ul) > details[open] > summary > a {
+    border-radius: 0.25rem 0.25rem 0 0;
+    border-bottom: none;
+  }
+  li.depth-1 > details[open] > summary > a {
+    background-color: var(--seafoam-10);
+  }
+  li.depth-2 > details[open] > summary > a {
+    background-color: var(--seafoam-20);
+  }
+  li.depth-3 > details[open] > summary > a {
+    background-color: var(--seafoam-30);
+  }
+  li.depth-4 > details[open] > summary > a {
+    background-color: var(--seafoam-40);
+  }
+  li a {
+    display: inline-block;
+    background-color: var(--seafoam-40);
+  }
+</style>

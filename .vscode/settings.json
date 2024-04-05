@@ -1,0 +1,5 @@
+{
+  // comment out below two lines to use default font
+  "editor.fontFamily": "\"Atkinson Hyperlegible\", sans-serif",
+  "editor.fontSize": 16
+}

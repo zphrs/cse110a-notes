@@ -1,0 +1,27 @@
+{
+  "name": "notes",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "predeploy": "pnpm build",
+    "deploy": "gh-pages -b gh-pages -d dist -t true"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.4.1",
+    "@astrojs/mdx": "^2.2.2",
+    "@astropub/md": "^0.4.0",
+    "astro": "^4.5.12",
+    "typescript": "^5.4.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.73",
+    "gh-pages": "^6.1.1",
+    "sharp": "^0.33.3",
+    "zod": "^3.22.4"
+  }
+}
