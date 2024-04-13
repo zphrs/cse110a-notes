@@ -63,6 +63,36 @@ const { title } = Astro.props
       })
     </script>
     <slot />
+    <footer>
+      <p
+        xmlns:cc='http://creativecommons.org/ns#'
+        xmlns:dct='http://purl.org/dc/terms/'
+      >
+        <a
+          property='dct:title'
+          rel='cc:attributionURL'
+          href='https://zphrs.github.io/cse110a-notes'>CSE 110A Notes</a
+        > by <a
+          rel='cc:attributionURL dct:creator'
+          property='cc:attributionName'
+          href='https://zephiris.me'>Zephiris Evergreen</a
+        > is marked with <a
+          href='https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1'
+          target='_blank'
+          rel='license noopener noreferrer'
+          style='display:inline-block;'
+          >CC0 1.0<img
+            style='height:22px!important;margin-left:3px;vertical-align:text-bottom;display:inline;'
+            src='https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1'
+            alt=''
+          /><img
+            style='height:22px!important;margin-left:3px;vertical-align:text-bottom;display:inline;'
+            src='https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1'
+            alt=''
+          /></a
+        >
+      </p>
+    </footer>
     <style is:global>
       img {
         margin: auto;
@@ -139,6 +169,7 @@ const { title } = Astro.props
         --gray-99-rgb: 255, 251, 255;
         background-color: var(--gray-1);
         color: var(--gray-99);
+        color-scheme: dark;
       }
 
       @media (prefers-color-scheme: light) {
@@ -203,6 +234,7 @@ const { title } = Astro.props
           --gray-5-rgb: 247, 240, 230;
           --gray-2-rgb: 255, 248, 243;
           --gray-1-rgb: 255, 251, 255;
+          color-scheme: light;
         }
       }
       h1,
@@ -216,6 +248,11 @@ const { title } = Astro.props
         color: var(--seafoam-70);
         margin: 0;
         padding-bottom: 1rem;
+      }
+
+      h1 {
+        padding: 0.66rem 1rem;
+        letter-spacing: -0.1px;
       }
 
       p {
@@ -257,6 +294,7 @@ const { title } = Astro.props
           "Helvetica Neue",
           sans-serif;
         font-size: 18px;
+        margin: 0;
         overflow-x: clip;
       }
       a {
@@ -278,6 +316,15 @@ const { title } = Astro.props
         background-color: var(--seafoam-10);
         outline: 1px solid currentColor;
         border-radius: 0.25rem;
+      }
+
+      footer {
+        padding: 1rem;
+        padding-bottom: 0;
+        border-top: 1px solid var(--violet-60);
+        background-color: var(--violet-2);
+        color: var(--gray-50);
+        font-size: 14px;
       }
 
       code {
