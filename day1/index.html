@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/cse130-notes/favicon.svg"><meta name="generator" content="Astro v4.1.2"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@700&family=Fira+Code&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@700&family=Fira+Code&display=swap"></noscript><title>Day 1 - Introduction</title><style>@keyframes slideInBack{0%{transform:translate(-100%);opacity:0}to{transform:translate(0);opacity:1}}@keyframes slideOutBack{0%{transform:translate(0);opacity:1}to{transform:translate(100%);opacity:0}}@keyframes slideInForward{0%{transform:translate(100%);opacity:0}to{transform:translate(0);opacity:1}}@keyframes slideOutForward{0%{transform:translate(0);opacity:1}to{transform:translate(-100%);opacity:0}}.date[data-astro-cid-v5yihett]{font-family:Atkinson Hyperlegible;margin-bottom:.5rem;display:block;color:var(--gray-60)}.next-prev[data-astro-cid-v5yihett]{display:grid;justify-content:space-between;grid-template-columns:1fr 1fr 1fr;margin:1rem 0;color:var(--gray-60)}.next[data-astro-cid-v5yihett]{text-align:right;grid-column:3 / 4}.prev[data-astro-cid-v5yihett]{grid-column:1 / 2}.all[data-astro-cid-v5yihett]{text-align:center;grid-column:2 / 3}aside[data-astro-cid-v5yihett]{background-color:var(--gray-10);padding:1rem;max-width:800px;margin:0 auto}@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0}}@keyframes astroFadeOut{to{opacity:0}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+</style>
+<link rel="stylesheet" href="/cse110a-notes/_astro/_slug_.2h-GlpeA.css" /><script type="module" src="/cse110a-notes/_astro/hoisted.Ta9NCA9F.js"></script><style>[data-astro-transition-scope="astro-y3q4yt3x-1"] { view-transition-name: astro-y3q4yt3x-1; }@layer astro { ::view-transition-old(astro-y3q4yt3x-1) { 
+	animation-duration: 90ms, 220ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1), cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both, both;
+	animation-name: astroFadeOut, astroSlideToLeft; }::view-transition-new(astro-y3q4yt3x-1) { 
+	animation-duration: 210ms, 220ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1), cubic-bezier(0.76, 0, 0.24, 1);
+	animation-delay: 30ms;
+	animation-fill-mode: both, both;
+	animation-name: astroFadeIn, astroSlideFromRight; }[data-astro-transition=back]::view-transition-old(astro-y3q4yt3x-1) { 
+	animation-name: astroFadeOut, astroSlideToRight; }[data-astro-transition=back]::view-transition-new(astro-y3q4yt3x-1) { 
+	animation-name: astroFadeIn, astroSlideFromLeft; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-y3q4yt3x-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-y3q4yt3x-1"] { 
+	animation-duration: 90ms, 220ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1), cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both, both;
+	animation-name: astroFadeOut, astroSlideToLeft; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-y3q4yt3x-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-y3q4yt3x-1"] { 
+	animation-duration: 210ms, 220ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1), cubic-bezier(0.76, 0, 0.24, 1);
+	animation-delay: 30ms;
+	animation-fill-mode: both, both;
+	animation-name: astroFadeIn, astroSlideFromRight; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-y3q4yt3x-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-y3q4yt3x-1"] { 
+	animation-name: astroFadeOut, astroSlideToRight; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-y3q4yt3x-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-y3q4yt3x-1"] { 
+	animation-name: astroFadeIn, astroSlideFromLeft; }</style><style>[data-astro-transition-scope="astro-pgxxj7dk-2"] { view-transition-name: astro-pgxxj7dk-2; }@layer astro { ::view-transition-old(astro-pgxxj7dk-2) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideInForward; }::view-transition-new(astro-pgxxj7dk-2) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideOutForward; }[data-astro-transition=back]::view-transition-old(astro-pgxxj7dk-2) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideInBack; }[data-astro-transition=back]::view-transition-new(astro-pgxxj7dk-2) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideOutBack; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-pgxxj7dk-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-pgxxj7dk-2"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideInForward; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-pgxxj7dk-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-pgxxj7dk-2"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideOutForward; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-pgxxj7dk-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-pgxxj7dk-2"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideInBack; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-pgxxj7dk-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-pgxxj7dk-2"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideOutBack; }</style><style>[data-astro-transition-scope="astro-jcuwcms7-3"] { view-transition-name: astro-jcuwcms7-3; }@layer astro { ::view-transition-old(astro-jcuwcms7-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(astro-jcuwcms7-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(astro-jcuwcms7-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(astro-jcuwcms7-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-jcuwcms7-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-jcuwcms7-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-jcuwcms7-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-jcuwcms7-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-jcuwcms7-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-jcuwcms7-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-jcuwcms7-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-jcuwcms7-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-spzw3xwm-4"] { view-transition-name: astro-spzw3xwm-4; }@layer astro { ::view-transition-old(astro-spzw3xwm-4) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(astro-spzw3xwm-4) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(astro-spzw3xwm-4) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(astro-spzw3xwm-4) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-spzw3xwm-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-spzw3xwm-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-spzw3xwm-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-spzw3xwm-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-spzw3xwm-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-spzw3xwm-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-spzw3xwm-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-spzw3xwm-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-q6rtzicy-5"] { view-transition-name: astro-q6rtzicy-5; }@layer astro { ::view-transition-old(astro-q6rtzicy-5) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideInForward; }::view-transition-new(astro-q6rtzicy-5) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideOutForward; }[data-astro-transition=back]::view-transition-old(astro-q6rtzicy-5) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideInBack; }[data-astro-transition=back]::view-transition-new(astro-q6rtzicy-5) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideOutBack; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-q6rtzicy-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-q6rtzicy-5"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideInForward; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-q6rtzicy-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-q6rtzicy-5"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideOutForward; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-q6rtzicy-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-q6rtzicy-5"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideInBack; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-q6rtzicy-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-q6rtzicy-5"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideOutBack; }</style></head> <body>   <aside data-astro-cid-v5yihett data-astro-transition-scope="astro-pgxxj7dk-2"> <span class="date" data-astro-cid-v5yihett data-astro-transition-scope="astro-jcuwcms7-3">March 31, 2024</span> <h1 data-astro-cid-v5yihett data-astro-transition-scope="astro-spzw3xwm-4">Day 1 - Introduction</h1> <div class="next-prev" data-astro-cid-v5yihett> <span class="prev" data-astro-cid-v5yihett>← prev note</span> <a class="all" href="/cse110a-notes/" data-astro-cid-v5yihett>all notes</a> <a class="next" href="../day2/" data-astro-cid-v5yihett>
+next class →
+</a> </div> </aside> <main data-astro-cid-v5yihett data-astro-transition-scope="astro-q6rtzicy-5">  <h1 id="day-1---introduction">Day 1 - Introduction</h1>
+<h2 id="sorensons-research-interests">Sorenson’s Research Interests</h2>
+<h3 id="utah---masters">Utah - Masters</h3>
+<p>bugs in GPU compilers; Specifically CUDA</p>
+<h3 id="london---phd">London - PHD</h3>
+<p>DSLs for GPUs (specifically DSL for graph analytics on GPUs)</p>
+<h4 id="dsl">DSL</h4>
+<p>Domain Specific Language</p>
+<h4 id="gpu">GPU</h4>
+<p>Graphics Processing Unit</p>
+<h3 id="princeton---postdoc---compilers-for-gpus">Princeton - Postdoc - Compilers for GPUs</h3>
+<p>Compilers targeting new GPU architectures</p>
+<h2 id="sorensons-research-interests-1">Sorenson’s Research Interests</h2>
+<p>GPU Compilers for new architectures and DSL + Compilers for hard applications (like particle simulations)</p>
+<h2 id="syllabus-stuff">Syllabus Stuff</h2>
+<h3 id="what-is-a-compiler">What is a compiler?</h3>
+<p>A compiler is a program that takes in another program and spits out a new program that does the same thing.</p>
+<h3 id="what-were-covering">What we’re covering</h3>
+<p>How compiler techniques can transform high level languages into low-level languages, i.e. closer to the instructions that processors can actually execute.
+Also automatically make code more efficient and safe to execute.</p>
+<h3 id="learning-goals">Learning Goals</h3>
+<ul>
+<li>Specifying programming language grammars</li>
+<li>how to efficiently parse these languages</li>
+<li>how to convert complex high-level code into equivalent (and hopefully more performant) low-level code</li>
+</ul>
+<h3 id="in-person-ish">In Person-ish</h3>
+<p>It is not an async class so make sure to attend the lectures to learn most effectively. If you need to miss a class or two then there is a best effort to record each lecture. However watching the lecture recording will not be a substitute for attending the lecture due to:</p>
+<ol>
+<li>the whiteboard not being recorded</li>
+<li>in class discussions</li>
+</ol>
+<h3 id="background">Background</h3>
+<ul>
+<li>CSE 12 - assembly
+<ul>
+<li>We will get 90% to assembly so being able to read and write low level code is important</li>
+<li>Also we will use C</li>
+</ul>
+</li>
+<li>CSE 101
+<ul>
+<li>High level code is ultimately represented as tree/graph data-structures.</li>
+<li>Algorithms on these structures which rely on recursion is how we will transform the code into a low-level representation.</li>
+<li>CSE 103 (optional)
+<ul>
+<li>Useful for regex and context-rree grammars</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>CSE 120
+<ul>
+<li>Understanding how loe-level code executes on a processor</li>
+<li>Useful for automatic optimizations</li>
+</ul>
+</li>
+</ul>
+<h3 id="homework">Homework</h3>
+<p>Officially supported homework env:</p>
+<ul>
+<li>Docker</li>
+<li>Command line text editor such as vim or emacs</li>
+<li>Many students like VSCode, but Sorenson doesn’t know VSCode and cannot provide support</li>
+</ul>
+<p>You should be comfortable using the command line</p>
+<h3 id="background-1">Background</h3>
+<ul>
+<li>Languages used in this class:
+<ul>
+<li>Python - high-level language</li>
+<li>C - low-level language</li>
+</ul>
+</li>
+<li>We will provide support for Python with examples and references</li>
+<li>C should have been learned in CSE 12/CSE 13
+<ul>
+<li>We will compile a restricted form of C throughout the class (only for loops/while loops/integers/floats/if statements)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Feel free to share your favorite docker or language resources!</li>
+</ul>
+<h3 id="class-format">Class Format</h3>
+<p>Ask questions! Engage!</p>
+<p>Don’t come to class sick! These recordings cna work as a substitute during those times. Will do our best to upload recordings!</p>
+<ul>
+<li>First part of class will be announcements, upcoming homeworks, tests, etc.</li>
+<li>Second part of class will be overviewing the quiz from the previous class.</li>
+</ul>
+<h3 id="office-hours">Office hours</h3>
+<ul>
+<li>3-5pm on Thursdays</li>
+<li>Will be a google sheet to sign up. You just edit the google sheet to sign up for a slot.</li>
+<li>TODO: add link to google sheet</li>
+<li>Slots are 10 minutes</li>
+<li>Link will be posted in Canvas around noon that day
+<ul>
+<li>Don’t sign up before the Canvas announcement</li>
+<li>Don’t sign up unless you have a question</li>
+<li>Sign up for one slot at a time</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>TAs and tutors will decide on theirs in the next few days. Hopefully good coverage between in-person and virtual office hours.</p>
+<h3 id="async-discussion">Async discussion</h3>
+<p>Use piazza for:</p>
+<ul>
+<li>Private message to teaching staff for technical homework questions</li>
+<li>Programming and framework questions (global)</li>
+<li>Tech news (global)</li>
+<li>Discussions on class material (global)</li>
+</ul>
+<p>They aim to have 24 hours response time.</p>
+<h4 id="additional-forums-discord">Additional Forums (Discord)</h4>
+<p>Feel free to create on, make it open and available to everyone, make sure to provide sufficient moderation, do not cheat, and please remember that anything that is not in Canvas may not be private.</p>
+<p>If there are any issues on discord please let the teaching staff know.</p>
+<h3 id="class-content">Class Content</h3>
+<p>30 classes split into 4 modules so ~7 classes per module</p>
+<h4 id="reference-book">Reference book</h4>
+<hr>
+<p>Engineering a compiler: second edition (available from UCSC libarary)
+<a href="https://ucsc.primo.exlibrisgroup.com/permalink/01CDL_SCR_INST/1jiojor/alma9914646210706531">link to book</a>
+<a href="https://go.oreilly.com/university-of-california-santa-cruz">link to Oreilley UCSC sign in</a></p>
+<p>Optional book: dragon book - Compilers: Principles, Techniques, and Tools</p>
+<h4 id="module-1">Module 1</h4>
+<p>Lexing</p>
+<h4 id="module-2">Module 2</h4>
+<p>Context-free grammars and parsing</p>
+<h4 id="module-3">Module 3</h4>
+<p>Intermediate representations</p>
+<p>AKA reducing from the parse tree to the abstract syntax tree</p>
+<h4 id="module-4">Module 4</h4>
+<p>Optimizations</p>
+<p>Several simple optimizations that exploit the IR structure to make code more efficient such as local value numbering and loop unrolling.</p>
+<h3 id="assignments-and-tests">Assignments and Tests</h3>
+<h4 id="assignments">Assignments</h4>
+<p>1-2 assignments per module</p>
+<p>All homeworks will be worth 50% combined</p>
+<p>The homeworks build on each other so that by the end you will have a little compiler that you have written bu yourself!</p>
+<p>No late homeworks will be accepted because the solutions will be posted after the due date to allow penalty-free building on previous homeworks.</p>
+<hr>
+<p>Format:</p>
+<ul>
+<li>Coding assignments in Python</li>
+<li>There will be a docker image that you should be able to run locally</li>
+<li>Submit to github classroom</li>
+</ul>
+<h4 id="tests">Tests</h4>
+<p>Two tests: final and midterm</p>
+<p>In person timed exam</p>
+<p>Midterm is may 3
+Final is monday, June 10 12-3pm</p>
+<p>You can use 3 pages of notes (handwritten or typed)</p>
+<h4 id="academic-integrity">Academic Integrity</h4>
+<p>Don’t copy code blindly</p>
+<p>Consulting the internet for specific details is fine but consulting for the entire solution is not</p>
+<p>Okay: “How do you concatenate an array in Python?”</p>
+<p>Not Okay: “How do you implement a compiler in Python?”</p>
+<p>Any part of your submission that is not your original work such as online code snippets need a citation. Sorenson aims to be lenient with cited code, but they may remove some points basedo n the extent. A few missing points is better than a referral for academic misconduct.</p>
+<p>Cite ChatGPT if you use it!</p>
+<p>Zero tolerance policy on cheating. This is the best chance in your career to take the time to really learn the class material. If you do not learn the material you will not be successful in a tech career.</p>
+<h4 id="late-policy">Late Policy</h4>
+<p>Assignments will not be accepted late</p>
+<blockquote>
+<p>Why? Because the assignments in this class build on each other. The next assignment depends on the one before it.</p>
+</blockquote>
+<p>Tests: Only accomodations will be through DRC</p>
+<h4 id="reviewing-grades">Reviewing Grades</h4>
+<p>You have 1 week from when the grade is posted to discuss grades with teaching staff.</p>
+<h3 id="quizzes-and-lecture">Quizzes and Lecture</h3>
+<p>Small canbvas quiz every lecture</p>
+<p>Quiz answers are graded on engagement, not correctness!</p>
+<p>All multiple choice questions are free as long as you answer</p>
+<p>Not always 1 right answer</p>
+<p>Last question is usually a reflection question. Answer in a few questions</p>
+<p>Meant to let you reflect on the material!</p>
+<p>Please only take the quiz if you attended (or watched) the lecture.</p>
+<p>You can have 3 free missed quizzes.</p>
+<h2 id="high-level-discussion-on-compilers">High level discussion on compilers</h2>
+<p>TODO</p>  </main>   </body> </html> 

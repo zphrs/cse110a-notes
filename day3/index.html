@@ -1,0 +1,244 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/cse130-notes/favicon.svg"><meta name="generator" content="Astro v4.1.2"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@700&family=Fira+Code&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@700&family=Fira+Code&display=swap"></noscript><title>Day 3 - Lexical Analysis</title><style>@keyframes slideInBack{0%{transform:translate(-100%);opacity:0}to{transform:translate(0);opacity:1}}@keyframes slideOutBack{0%{transform:translate(0);opacity:1}to{transform:translate(100%);opacity:0}}@keyframes slideInForward{0%{transform:translate(100%);opacity:0}to{transform:translate(0);opacity:1}}@keyframes slideOutForward{0%{transform:translate(0);opacity:1}to{transform:translate(-100%);opacity:0}}.date[data-astro-cid-v5yihett]{font-family:Atkinson Hyperlegible;margin-bottom:.5rem;display:block;color:var(--gray-60)}.next-prev[data-astro-cid-v5yihett]{display:grid;justify-content:space-between;grid-template-columns:1fr 1fr 1fr;margin:1rem 0;color:var(--gray-60)}.next[data-astro-cid-v5yihett]{text-align:right;grid-column:3 / 4}.prev[data-astro-cid-v5yihett]{grid-column:1 / 2}.all[data-astro-cid-v5yihett]{text-align:center;grid-column:2 / 3}aside[data-astro-cid-v5yihett]{background-color:var(--gray-10);padding:1rem;max-width:800px;margin:0 auto}@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0}}@keyframes astroFadeOut{to{opacity:0}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+</style>
+<link rel="stylesheet" href="/cse110a-notes/_astro/_slug_.2h-GlpeA.css" /><script type="module" src="/cse110a-notes/_astro/hoisted.Ta9NCA9F.js"></script><style>[data-astro-transition-scope="astro-y3q4yt3x-1"] { view-transition-name: astro-y3q4yt3x-1; }@layer astro { ::view-transition-old(astro-y3q4yt3x-1) { 
+	animation-duration: 90ms, 220ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1), cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both, both;
+	animation-name: astroFadeOut, astroSlideToLeft; }::view-transition-new(astro-y3q4yt3x-1) { 
+	animation-duration: 210ms, 220ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1), cubic-bezier(0.76, 0, 0.24, 1);
+	animation-delay: 30ms;
+	animation-fill-mode: both, both;
+	animation-name: astroFadeIn, astroSlideFromRight; }[data-astro-transition=back]::view-transition-old(astro-y3q4yt3x-1) { 
+	animation-name: astroFadeOut, astroSlideToRight; }[data-astro-transition=back]::view-transition-new(astro-y3q4yt3x-1) { 
+	animation-name: astroFadeIn, astroSlideFromLeft; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-y3q4yt3x-1"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-y3q4yt3x-1"] { 
+	animation-duration: 90ms, 220ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1), cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both, both;
+	animation-name: astroFadeOut, astroSlideToLeft; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-y3q4yt3x-1"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-y3q4yt3x-1"] { 
+	animation-duration: 210ms, 220ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1), cubic-bezier(0.76, 0, 0.24, 1);
+	animation-delay: 30ms;
+	animation-fill-mode: both, both;
+	animation-name: astroFadeIn, astroSlideFromRight; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-y3q4yt3x-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-y3q4yt3x-1"] { 
+	animation-name: astroFadeOut, astroSlideToRight; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-y3q4yt3x-1"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-y3q4yt3x-1"] { 
+	animation-name: astroFadeIn, astroSlideFromLeft; }</style><style>[data-astro-transition-scope="astro-pgxxj7dk-2"] { view-transition-name: astro-pgxxj7dk-2; }@layer astro { ::view-transition-old(astro-pgxxj7dk-2) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideInForward; }::view-transition-new(astro-pgxxj7dk-2) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideOutForward; }[data-astro-transition=back]::view-transition-old(astro-pgxxj7dk-2) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideInBack; }[data-astro-transition=back]::view-transition-new(astro-pgxxj7dk-2) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideOutBack; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-pgxxj7dk-2"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-pgxxj7dk-2"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideInForward; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-pgxxj7dk-2"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-pgxxj7dk-2"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideOutForward; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-pgxxj7dk-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-pgxxj7dk-2"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideInBack; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-pgxxj7dk-2"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-pgxxj7dk-2"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideOutBack; }</style><style>[data-astro-transition-scope="astro-jcuwcms7-3"] { view-transition-name: astro-jcuwcms7-3; }@layer astro { ::view-transition-old(astro-jcuwcms7-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(astro-jcuwcms7-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(astro-jcuwcms7-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(astro-jcuwcms7-3) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-jcuwcms7-3"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-jcuwcms7-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-jcuwcms7-3"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-jcuwcms7-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-jcuwcms7-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-jcuwcms7-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-jcuwcms7-3"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-jcuwcms7-3"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-spzw3xwm-4"] { view-transition-name: astro-spzw3xwm-4; }@layer astro { ::view-transition-old(astro-spzw3xwm-4) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }::view-transition-new(astro-spzw3xwm-4) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back]::view-transition-old(astro-spzw3xwm-4) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back]::view-transition-new(astro-spzw3xwm-4) { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-spzw3xwm-4"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-spzw3xwm-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-spzw3xwm-4"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-spzw3xwm-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-spzw3xwm-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-spzw3xwm-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeOut; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-spzw3xwm-4"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-spzw3xwm-4"] { 
+	animation-duration: 180ms;
+	animation-timing-function: cubic-bezier(0.76, 0, 0.24, 1);
+	animation-fill-mode: both;
+	animation-name: astroFadeIn; }</style><style>[data-astro-transition-scope="astro-q6rtzicy-5"] { view-transition-name: astro-q6rtzicy-5; }@layer astro { ::view-transition-old(astro-q6rtzicy-5) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideInForward; }::view-transition-new(astro-q6rtzicy-5) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideOutForward; }[data-astro-transition=back]::view-transition-old(astro-q6rtzicy-5) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideInBack; }[data-astro-transition=back]::view-transition-new(astro-q6rtzicy-5) { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideOutBack; } }[data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-q6rtzicy-5"],
+			[data-astro-transition-fallback="old"][data-astro-transition-scope="astro-q6rtzicy-5"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideInForward; }[data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-q6rtzicy-5"],
+			[data-astro-transition-fallback="new"][data-astro-transition-scope="astro-q6rtzicy-5"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideOutForward; }[data-astro-transition=back][data-astro-transition-fallback="old"] [data-astro-transition-scope="astro-q6rtzicy-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="old"][data-astro-transition-scope="astro-q6rtzicy-5"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: backwards;
+	animation-name: slideInBack; }[data-astro-transition=back][data-astro-transition-fallback="new"] [data-astro-transition-scope="astro-q6rtzicy-5"],
+			[data-astro-transition=back][data-astro-transition-fallback="new"][data-astro-transition-scope="astro-q6rtzicy-5"] { 
+	animation-duration: 0.2s;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+	animation-name: slideOutBack; }</style></head> <body>   <aside data-astro-cid-v5yihett data-astro-transition-scope="astro-pgxxj7dk-2"> <span class="date" data-astro-cid-v5yihett data-astro-transition-scope="astro-jcuwcms7-3">April 4, 2024</span> <h1 data-astro-cid-v5yihett data-astro-transition-scope="astro-spzw3xwm-4">Day 3 - Lexical Analysis</h1> <div class="next-prev" data-astro-cid-v5yihett> <a class="prev" href="../day2/" data-astro-cid-v5yihett>
+← prev class
+</a> <a class="all" href="/cse110a-notes/" data-astro-cid-v5yihett>all notes</a> <a class="next" href="../day4/" data-astro-cid-v5yihett>
+next class →
+</a> </div> </aside> <main data-astro-cid-v5yihett data-astro-transition-scope="astro-q6rtzicy-5">  <h1 id="lexical-analysis">Lexical Analysis</h1>
+<h2 id="homework-1">Homework 1</h2>
+<p>Released on Monday!</p>
+<h2 id="quiz">Quiz</h2>
+<h3 id="compiler-warnings">Compiler Warnings</h3>
+<p>If the compiler gives you a warning, then your code definitely has an error.</p>
+<ul>
+<li>True</li>
+<li><strong>False</strong></li>
+</ul>
+<h3 id="uninitialized-variables">Uninitialized Variables</h3>
+<p>An uninitialized variable can give you any value, however, the value that it gives you will be the smae each time you run the program.</p>
+<ul>
+<li>True</li>
+<li><strong>False</strong></li>
+</ul>
+<h3 id="compilers-modifying-code">Compilers Modifying Code</h3>
+<p>Compilers are allowed to modify a function in any way just so long as it returns the smae values as it returns the same value as the original function.</p>
+<ul>
+<li><strong>True</strong></li>
+<li><strong>False</strong></li>
+</ul>
+<p>True usually, unless the compiler is trying to keep side effects. Both true and false is correct.</p>
+<h3 id="modular-compiler-deisgn">Modular Compiler Deisgn</h3>
+<p>What are some of the benefits of this design?</p>
+<p>You can remove duplicate code between different end targets by putting it in the frontend and have the backend go from an intermediate representation to the target language which should be a quick and simple process.</p>
+<h2 id="parsing">Parsing</h2>
+<p>Parsing is the front end which creates a tree of the program.</p>
+<p>Optimizations are run on the tree and then the backend takes the tree and turns it into the target language.</p>
+<h3 id="scannerlexer">Scanner/Lexer</h3>
+<p>It breaks the input program into a token stream.</p>
+<hr>
+<p>We give it a list of tokens and definitions. Definitions are simply a list of token names that belong to a cooresponding token. It then returns a lexeme stream, or a tuple of the token name and the value of the token.</p>
+<p>Note: you can ignore whitespace when outputting the lexeme stream.</p>
+<p>Also always take the longest possible token.</p>
+<p>For example instead of partins x++ as x, +, +, you should parse it as x, ++.</p>
+<h4 id="example">Example</h4>
+<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#846905">"My old computer crashed"</span><span style="color:#6E9D87"> // is scanned to:</span></span>
+<span class="line"><span style="color:#313233">[(</span><span style="color:#645CEE">Article</span><span style="color:#313233">, </span><span style="color:#846905">"My"</span><span style="color:#313233">), (</span><span style="color:#645CEE">Adjective</span><span style="color:#313233">, </span><span style="color:#846905">"old"</span><span style="color:#313233">), (</span><span style="color:#645CEE">Noun</span><span style="color:#313233">, </span><span style="color:#846905">"computer"</span><span style="color:#313233">), (</span><span style="color:#645CEE">Verb</span><span style="color:#313233">, </span><span style="color:#846905">"crashed"</span><span style="color:#313233">)]</span></span></code></pre>
+<h4 id="naive-implementation">Naive Implementation</h4>
+<p>Using the following tokens:</p>
+<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#413900">ID</span><span style="color:#CE9409"> =</span><span style="color:#313233"> [</span><span style="color:#2D27A4">characters</span><span style="color:#313233">]</span></span>
+<span class="line"><span style="color:#413900">NUM</span><span style="color:#CE9409"> =</span><span style="color:#313233"> [</span><span style="color:#2D27A4">numbers</span><span style="color:#313233">]</span></span>
+<span class="line"><span style="color:#413900">ASSIGN</span><span style="color:#CE9409"> =</span><span style="color:#846905"> "="</span></span>
+<span class="line"><span style="color:#413900">PLUS</span><span style="color:#CE9409"> =</span><span style="color:#846905"> "+"</span></span>
+<span class="line"><span style="color:#413900">MULT</span><span style="color:#CE9409"> =</span><span style="color:#846905"> "*"</span></span>
+<span class="line"><span style="color:#413900">IGNORE</span><span style="color:#CE9409"> =</span><span style="color:#313233"> [</span><span style="color:#2D27A4">whitespace</span><span style="color:#313233">]</span></span></code></pre>
+<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#CE9409">class</span><span style="color:#645CEE"> NaiveScanner</span><span style="color:#345348">:</span></span>
+<span class="line"><span style="color:#CE9409">    def</span><span style="color:#345348"> __init__(</span><span style="color:#2D27A4">self</span><span style="color:#345348">, </span><span style="color:#2D27A4">input_string</span><span style="color:#345348">):</span></span>
+<span class="line"><span style="color:#CE9409">        self</span><span style="color:#345348">.ss </span><span style="color:#CE9409">=</span><span style="color:#345348"> StringStream(input_string)</span></span>
+<span class="line"><span style="color:#6E9D87">    # Make sure to go in order of length3</span></span>
+<span class="line"><span style="color:#CE9409">    def</span><span style="color:#345348"> token(</span><span style="color:#2D27A4">self</span><span style="color:#345348">):</span></span>
+<span class="line"><span style="color:#CE9409">        while</span><span style="color:#CE9409"> self</span><span style="color:#345348">.ss.peek_char() </span><span style="color:#CE9409">in</span><span style="color:#413900"> IGNORE</span><span style="color:#345348">:</span></span>
+<span class="line"><span style="color:#CE9409">            self</span><span style="color:#345348">.ss.eat_char()</span></span>
+<span class="line"><span style="color:#CE9409">        if</span><span style="color:#CE9409"> self</span><span style="color:#345348">.ss.peek_char() </span><span style="color:#CE9409">==</span><span style="color:#846905"> "+"</span><span style="color:#345348">:</span></span>
+<span class="line"><span style="color:#345348">            value </span><span style="color:#CE9409">=</span><span style="color:#CE9409"> self</span><span style="color:#345348">.ss.peek_char()</span></span>
+<span class="line"><span style="color:#CE9409">            self</span><span style="color:#345348">.ss.eat_char();</span></span>
+<span class="line"><span style="color:#CE9409">            return</span><span style="color:#345348"> (</span><span style="color:#846905">"ADD"</span><span style="color:#345348">, value)</span></span>
+<span class="line"><span style="color:#CE9409">        if</span><span style="color:#CE9409"> self</span><span style="color:#345348">.ss.peek_char() </span><span style="color:#CE9409">==</span><span style="color:#846905"> "*"</span><span style="color:#345348">:</span></span>
+<span class="line"><span style="color:#345348">            value </span><span style="color:#CE9409">=</span><span style="color:#CE9409"> self</span><span style="color:#345348">.ss.peek_char()</span></span>
+<span class="line"><span style="color:#CE9409">            self</span><span style="color:#345348">.ss.eat_char();</span></span>
+<span class="line"><span style="color:#CE9409">            return</span><span style="color:#345348"> (</span><span style="color:#846905">"MULT"</span><span style="color:#345348">, value)</span></span>
+<span class="line"><span style="color:#CE9409">        if</span><span style="color:#CE9409"> self</span><span style="color:#345348">.ss.peek_char() </span><span style="color:#CE9409">in</span><span style="color:#413900"> NUMS</span><span style="color:#345348">:</span></span>
+<span class="line"><span style="color:#345348">            value </span><span style="color:#CE9409">=</span><span style="color:#846905"> ""</span></span>
+<span class="line"><span style="color:#CE9409">            while</span><span style="color:#CE9409"> self</span><span style="color:#345348">.ss.peek_char() </span><span style="color:#CE9409">in</span><span style="color:#413900"> NUMS</span><span style="color:#345348">:</span></span>
+<span class="line"><span style="color:#345348">                value </span><span style="color:#CE9409">+=</span><span style="color:#CE9409"> self</span><span style="color:#345348">.ss.peek_char()</span></span>
+<span class="line"><span style="color:#CE9409">                self</span><span style="color:#345348">.ss.eat_char()</span></span>
+<span class="line"><span style="color:#CE9409">            return</span><span style="color:#345348"> (</span><span style="color:#846905">"NUM"</span><span style="color:#345348">, value)</span></span></code></pre>  </main>   </body> </html> 
