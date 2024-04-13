@@ -94,3 +94,13 @@ Timing, memory usage, etc. Any side-effect that is not the strict output of the 
 ## Compilation Pipeline Overview
 
 ![A overview of the pipeline going through: input program, lexical analysis, syntactic analyzer, semantic analyzer, intermediate code gen, IR optimizations (loop), target code gen, target code optimizations (loop), and lastly into machine code.](./images/day2/pipeline.png)
+
+## Overview of Compiler Design
+
+```
+Input program (string; start of front end) ---> lexical analysis --token stream-> syntactic analyzer --syntax tree-> semantic analyzer --syntax tree-> Intermediate code gen --IR program-> IR optimizations (loop; end of front end) --optimized IR program-> target code gen (start of back end) --ISA program-> target code optimizations (loop!) --optimized ISA program-> machine code
+```
+
+---
+
+Technically this is from day 3 but it fits better with day 2
