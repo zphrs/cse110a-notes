@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content"
-import Layout from "../../../layouts/Layout.astro"
+import Layout from "../../layouts/Layout.astro"
 const allPosts = await getCollection("notes")
-import { headersToTree } from "../../../components/HeaderTrees"
-import NoteTree from "../../../components/NoteTree.astro"
+import { headersToTree } from "../../components/HeaderTrees"
+import NoteTree from "../../components/NoteTree.astro"
 ---
 
 <Layout title='All Notes'>
