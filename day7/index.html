@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/cse130-notes/favicon.svg"><meta name="generator" content="Astro v4.1.2"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@700&family=Fira+Code&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@700&family=Fira+Code&display=swap"></noscript><title>Day 4 - Regex</title><style>@keyframes slideInBack{0%{transform:translate(-100%);opacity:0}to{transform:translate(0);opacity:1}}@keyframes slideOutBack{0%{transform:translate(0);opacity:1}to{transform:translate(100%);opacity:0}}@keyframes slideInForward{0%{transform:translate(100%);opacity:0}to{transform:translate(0);opacity:1}}@keyframes slideOutForward{0%{transform:translate(0);opacity:1}to{transform:translate(-100%);opacity:0}}.date[data-astro-cid-v5yihett]{font-family:Atkinson Hyperlegible;margin-bottom:.5rem;display:block;color:var(--gray-60)}.next-prev[data-astro-cid-v5yihett]{display:grid;justify-content:space-between;grid-template-columns:1fr 1fr 1fr;margin:1rem 0;color:var(--gray-60)}.next[data-astro-cid-v5yihett]{text-align:right;grid-column:3 / 4}.prev[data-astro-cid-v5yihett]{grid-column:1 / 2}.all[data-astro-cid-v5yihett]{text-align:center;grid-column:2 / 3}aside[data-astro-cid-v5yihett]{background-color:var(--gray-10);padding:1rem;max-width:800px;margin:0 auto}@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0}}@keyframes astroFadeOut{to{opacity:0}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="description" content="Astro description"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/svg+xml" href="/cse130-notes/favicon.svg"><meta name="generator" content="Astro v4.1.2"><meta name="astro-view-transitions-enabled" content="true"><meta name="astro-view-transitions-fallback" content="animate"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@700&family=Fira+Code&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Comfortaa:wght@700&family=Fira+Code&display=swap"></noscript><title>Day 7 - Parsing</title><style>@keyframes slideInBack{0%{transform:translate(-100%);opacity:0}to{transform:translate(0);opacity:1}}@keyframes slideOutBack{0%{transform:translate(0);opacity:1}to{transform:translate(100%);opacity:0}}@keyframes slideInForward{0%{transform:translate(100%);opacity:0}to{transform:translate(0);opacity:1}}@keyframes slideOutForward{0%{transform:translate(0);opacity:1}to{transform:translate(-100%);opacity:0}}.date[data-astro-cid-v5yihett]{font-family:Atkinson Hyperlegible;margin-bottom:.5rem;display:block;color:var(--gray-60)}.next-prev[data-astro-cid-v5yihett]{display:grid;justify-content:space-between;grid-template-columns:1fr 1fr 1fr;margin:1rem 0;color:var(--gray-60)}.next[data-astro-cid-v5yihett]{text-align:right;grid-column:3 / 4}.prev[data-astro-cid-v5yihett]{grid-column:1 / 2}.all[data-astro-cid-v5yihett]{text-align:center;grid-column:2 / 3}aside[data-astro-cid-v5yihett]{background-color:var(--gray-10);padding:1rem;max-width:800px;margin:0 auto}@keyframes astroFadeInOut{0%{opacity:1}to{opacity:0}}@keyframes astroFadeIn{0%{opacity:0}}@keyframes astroFadeOut{to{opacity:0}}@keyframes astroSlideFromRight{0%{transform:translate(100%)}}@keyframes astroSlideFromLeft{0%{transform:translate(-100%)}}@keyframes astroSlideToRight{to{transform:translate(100%)}}@keyframes astroSlideToLeft{to{transform:translate(-100%)}}@media (prefers-reduced-motion){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}[data-astro-transition-scope]{animation:none!important}}
 </style>
 <link rel="stylesheet" href="/cse110a-notes/_astro/_slug_.h4T1ZDnE.css" /><script type="module" src="/cse110a-notes/_astro/hoisted.Ta9NCA9F.js"></script><style>[data-astro-transition-scope="astro-y3q4yt3x-1"] { view-transition-name: astro-y3q4yt3x-1; }@layer astro { ::view-transition-old(astro-y3q4yt3x-1) { 
 	animation-duration: 90ms, 220ms;
@@ -170,70 +170,74 @@
 	animation-duration: 0.2s;
 	animation-timing-function: ease;
 	animation-fill-mode: forwards;
-	animation-name: slideOutBack; }</style></head> <body>   <aside data-astro-cid-v5yihett data-astro-transition-scope="astro-pgxxj7dk-2"> <span class="date" data-astro-cid-v5yihett data-astro-transition-scope="astro-jcuwcms7-3">April 7, 2024</span> <h1 data-astro-cid-v5yihett data-astro-transition-scope="astro-spzw3xwm-4">Day 4 - Regex</h1> <div class="next-prev" data-astro-cid-v5yihett> <a class="prev" href="../day3/" data-astro-cid-v5yihett>
+	animation-name: slideOutBack; }</style></head> <body>   <aside data-astro-cid-v5yihett data-astro-transition-scope="astro-pgxxj7dk-2"> <span class="date" data-astro-cid-v5yihett data-astro-transition-scope="astro-jcuwcms7-3">April 16, 2024</span> <h1 data-astro-cid-v5yihett data-astro-transition-scope="astro-spzw3xwm-4">Day 7 - Parsing</h1> <div class="next-prev" data-astro-cid-v5yihett> <a class="prev" href="../day6/" data-astro-cid-v5yihett>
 ← prev class
-</a> <a class="all" href="/cse110a-notes/" data-astro-cid-v5yihett>all notes</a> <span class="next" data-astro-cid-v5yihett>next note →</span> </div> </aside> <main data-astro-cid-v5yihett data-astro-transition-scope="astro-q6rtzicy-5">  <h1 id="day-4---regex">Day 4 - Regex</h1>
-<h2 id="quiz-on-scanners">Quiz on Scanners</h2>
-<h2 id="q1-token-function">Q1: Token Function</h2>
-<p>The scanner member function <code>token</code> returns a list of the tokens that it can recognize in a string</p>
+</a> <a class="all" href="/cse110a-notes/" data-astro-cid-v5yihett>all notes</a> <span class="next" data-astro-cid-v5yihett>next note →</span> </div> </aside> <main data-astro-cid-v5yihett data-astro-transition-scope="astro-q6rtzicy-5">  <h1 id="day-7">Day 7</h1>
+<h2 id="announcements">Announcements</h2>
+<p>Start of module two which gets more complex with recursion.</p>
+<h2 id="quiz">Quiz</h2>
+<h3 id="q1">Q1</h3>
+<p>Which of the following are token actions NOT great for:</p>
+<ul>
+<li>Changing the value of a token</li>
+<li>Changing the token type</li>
+<li><strong>Splitting a token into multiple tokens</strong></li>
+<li>Keeping track of scanning statistics</li>
+</ul>
+<h3 id="q2">Q2</h3>
+<p>Which of the following naguage features make scanner implementations easier?</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input type="checkbox" checked disabled> Rexular expression matcher</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Higher order functions</li>
+<li class="task-list-item"><input type="checkbox" checked disabled> Types</li>
+<li class="task-list-item"><input type="checkbox" disabled> Interpreted languages</li>
+</ul>
+<h3 id="q3">Q3</h3>
+<p>All scanner generators have the same interface, which makes it very easy to switch from one generator (e.g. Lex) to another (e.g. PLY).</p>
 <ul>
 <li>True</li>
-<li><strong>False</strong>: It returns the next lexeme</li>
+<li><strong>False</strong> - They have similar interfaces but not exactly the same.</li>
 </ul>
-<h2 id="q2-validation">Q2: Validation</h2>
-<p>A scanner should make sure that the sequence of lexemes is valid, e.g. the scanner should make sure two numbers are separated by a valid operator.</p>
-<ul>
-<li>True</li>
-<li><strong>False</strong>: The scanner should only return the next lexeme, not check for validity</li>
-</ul>
-<h2 id="q3-count-lexemes">Q3: Count Lexemes</h2>
-<p>Count lexemes in the following string &#x26; list them: <code>for (int i = 0; i &#x3C;=5; i++)</code></p>
-<p>Possible Answer:</p>
-<ul>
-<li>14</li>
-</ul>
-<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#345348">[(</span><span style="color:#413900">KEYWORD</span><span style="color:#CE9409">/</span><span style="color:#413900">LOOP</span><span style="color:#CE9409">/</span><span style="color:#413900">ID</span><span style="color:#345348">, </span><span style="color:#846905">"for"</span><span style="color:#345348">),(</span><span style="color:#413900">PAREN</span><span style="color:#345348">, </span><span style="color:#846905">"("</span><span style="color:#345348">),(</span><span style="color:#413900">ID</span><span style="color:#345348">, </span><span style="color:#846905">"int"</span><span style="color:#345348">),(</span><span style="color:#413900">ID</span><span style="color:#345348">, </span><span style="color:#846905">"i"</span><span style="color:#345348">),(</span><span style="color:#413900">ASSIGN</span><span style="color:#345348">, </span><span style="color:#846905">"="</span><span style="color:#345348">),(</span><span style="color:#413900">NUM</span><span style="color:#345348">, </span><span style="color:#846905">"0"</span><span style="color:#345348">),(</span><span style="color:#413900">SEMI</span><span style="color:#345348">, </span><span style="color:#846905">";"</span><span style="color:#345348">),(</span><span style="color:#413900">ID</span><span style="color:#345348">, </span><span style="color:#846905">"i"</span><span style="color:#345348">),(</span><span style="color:#413900">OP</span><span style="color:#CE9409">/</span><span style="color:#413900">LE</span><span style="color:#345348">, </span><span style="color:#846905">"&#x3C;="</span><span style="color:#345348">), (</span><span style="color:#413900">NUM</span><span style="color:#345348">, </span><span style="color:#846905">"5"</span><span style="color:#345348">),(</span><span style="color:#413900">SEMI</span><span style="color:#345348">, </span><span style="color:#846905">";"</span><span style="color:#345348">),(</span><span style="color:#413900">ID</span><span style="color:#345348">, </span><span style="color:#846905">"i"</span><span style="color:#345348">),(</span><span style="color:#413900">ASGNOP</span><span style="color:#CE9409">/</span><span style="color:#413900">INCR</span><span style="color:#345348">, </span><span style="color:#846905">"++"</span><span style="color:#345348">),(</span><span style="color:#413900">PAREN</span><span style="color:#345348">, </span><span style="color:#846905">")"</span><span style="color:#345348">)]</span></span></code></pre>
-<h2 id="shortcomings-of-naive-scanner">Shortcomings of Naive Scanner</h2>
-<p>It’s hard to maintain as it is a “labrinth of if statements.”</p>
-<h3 id="how-do-we-solve-this">How do we solve this?</h3>
-<p>REGEX! Regex can be used to define token regular expressions.</p>
-<h2 id="regex">Regex</h2>
-<h3 id="pros">Pros</h3>
-<ul>
-<li>Extensible Design</li>
-<li>Modular</li>
-</ul>
-<h3 id="cons">Cons</h3>
-<ul>
-<li>token definitions are restricted to regular languages</li>
-<li>potentially slower</li>
-<li>Regular expression matchers are complicated</li>
-</ul>
-<h3 id="language-families">Language Families</h3>
-<h4 id="recursively-enumerable">Recursively Enumerable</h4>
-<p>Recursively enumerable languages are the most powerful language family. They are the set of all languages that can be recognized by a Turing machine. However, they are not decidable.</p>
-<h4 id="context-sensitive">Context-Sensitive</h4>
-<p>Context-sensitive languages are the set of all languages that can be recognized by a linear-bounded automaton.</p>
-<h4 id="context-free">Context-Free</h4>
-<p>Context-free languages are the set of all languages that can be recognized by a pushdown automaton.</p>
-<h4 id="regular">Regular</h4>
-<p>Regular languages are the set of all languages that can be recognized by REGEX.</p>
-<hr>
-<p>We will define regular expressions recursively.</p>
-<p>A syring matches an RE if it belongs to the regular language defined by the RE.</p>
-<h3 id="example">Example</h3>
-<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span style="color:#CE9409">import</span><span style="color:#345348"> re</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#345348">re.fullmatch(pattern, string)</span></span></code></pre>
-<h3 id="special-characters">Special Characters</h3>
-<ul>
-<li><code>.</code>: Any non-breaking character</li>
-<li><code>|</code>: Will match either the left or right side</li>
-<li><code>+</code>: One or more of the preceding character.</li>
-<li><code>*</code>: Zero or more of the preceding character</li>
-<li><code>?</code>: Zero or one of the preceding character. <code>r?</code> is equivalent to <code>|r</code></li>
-<li><code>(...)</code> : Grouping - for example <code>(ab)+</code> will match <code>ababab</code> while <code>ab+</code> will match <code>abbbb</code></li>
-<li><code>[0-9]</code>: Equivalent to <code>0|1|2|3|4|5|6|7|8|9</code></li>
-<li>[a-c]: Equivalent to <code>a|b|c</code></li>
-<li>[A-C]: Equivalent to <code>A|B|C</code></li>
-</ul>  </main>  <footer> <!-- @ts-ignore --> <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"> <a property="dct:title" rel="cc:attributionURL" href="https://zphrs.github.io/cse110a-notes">CSE 110A Notes</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://zephiris.me">Zephiris Evergreen</a> is marked with <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;display:inline;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;display:inline;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt=""></a> </p> </footer>   </body></html> 
+<h3 id="q4">Q4</h3>
+<p>If you were given a scanner that you knew was either an EM Scanner, SOS Scanner, or NG scanner, and you could instantiate it with any token definitions you want, could you design an experiment (without using timing information) to determine which scanner implementation you had?</p>
+<p>You can have a token with the regex
+<code>+|++</code> to determine between the EM and SOS scanner. If it matches <code>++</code> then it is an EM scanner otherwise if it matches <code>+</code> twice it is an SOS scanner.</p>
+<p>Similarly you can use two tokens to distinguish between the SOS and NG Scanner.</p>
+<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span>T1 = `+`</span></span>
+<span class="line"><span>T2 = `++`</span></span></code></pre>
+<p>Because the NG scanner will go in order of matches it will match T1 twice whereas SOS will match all of the regexes against the input string and then return the longest match meaning it will match T2.</p>
+<h2 id="syntactic-analysis">Syntactic Analysis</h2>
+<p>Determines if tokens fit into the syntactic structure of the language.</p>
+<h3 id="context-free-languages">Context-free Languages</h3>
+<p>A context free language is a language that can be recognized by a context-free grammar.</p>
+<h3 id="context-free-grammar">Context-free Grammar</h3>
+<p>We will use Backus-Naur Form (BNF) to define the grammar of a language.</p>
+<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span>add_expr ::= NUM '+' NUM</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>mult_expr ::= NUM '*' NUM</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>joint_expr ::= add_expr '*' add_expr</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>simple_expr ::= NUM `+` NUM</span></span>
+<span class="line"><span>            | NUM '*' NUM</span></span></code></pre>
+<p>An example to match algebraic expressions.</p>
+<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span>1: Expr ::= ‘(’ Expr ‘)’</span></span>
+<span class="line"><span>2:      | Expr Op ID</span></span>
+<span class="line"><span>3:      | ID</span></span>
+<span class="line"><span>4: Op   ::= ‘+’</span></span>
+<span class="line"><span>5: Op   | ‘*’</span></span></code></pre>
+<p>Two types of rules: terminal and non-terminal. Terminals will either be string constants or tokens.</p>
+<h3 id="ambiguous-grammar">Ambiguous Grammar</h3>
+<p>When different derivations have different parse trees.</p>
+<p>Example:</p>
+<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span>1: Statement ::= ”if” Expr “then” Statement “else” Statement</span></span>
+<span class="line"><span>2:           | ”if” Expr “then” Statement</span></span>
+<span class="line"><span>3:           | Assignment</span></span>
+<span class="line"><span>4:           | ....</span></span></code></pre>
+<pre class="astro-code by https://github.com/el-angel/theme-editor" style="background-color:#E5E6E2;color:#19191A; overflow-x: auto;" tabindex="0"><code><span class="line"><span>if Expr1 then if Expr2 then Assignment1 else Assignment2</span></span></code></pre>
+<p><img alt="Ambiguous"  src="/cse110a-notes/_astro/ambiguous.U2QpTCem_Z2esaIY.webp" width="1434" height="406" loading="lazy" decoding="async"></p>
+<h4 id="case-study">Case Study</h4>
+<p>Using a Context-Free Grammar you can derive random strings in a language.</p>
+<h5 id="c-smith">C-Smith</h5>
+<p>Generates random C programs and is used to test compiler correctness.</p>
+<p>You can simply compare the output of random C programs compiled with different compilers to check for correctness. If there is a difference then you know at least one of the compilers has a consistency bug.</p>  </main>  <footer> <!-- @ts-ignore --> <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"> <a property="dct:title" rel="cc:attributionURL" href="https://zphrs.github.io/cse110a-notes">CSE 110A Notes</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://zephiris.me">Zephiris Evergreen</a> is marked with <a href="https://creativecommons.org/publicdomain/zero/1.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC0 1.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;display:inline;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;display:inline;" src="https://mirrors.creativecommons.org/presskit/icons/zero.svg?ref=chooser-v1" alt=""></a> </p> </footer>   </body></html> 
