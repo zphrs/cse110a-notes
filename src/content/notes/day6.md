@@ -1,7 +1,8 @@
 ---
 title: Day 6 - Adv. Scanners
 date: 2024-04-08
-prevNote: ../day3/
+prevNote: ../day5/
+nextNote: ../day7/
 ---
 
 # Day 6 - Advanced Scanners
