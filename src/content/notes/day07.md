@@ -1,7 +1,8 @@
 ---
 title: Day 7 - Parsing
 date: 2024-04-17
-prevNote: ../day6/
+prevNote: ../day06/
+nextNote: ../day08/
 ---
 
 # Day 7

@@ -1,7 +1,8 @@
 ---
 title: Day 9 - Associativity & Parsing
 date: 2024-04-22
-prevNote: ../day8/
+prevNote: ../day08/
+nextNote: ../day10/
 ---
 
 # Day 9
@@ -36,7 +37,7 @@ Which grammar is ambiguous?
   e -> e PLUS e
   e -> ID
 
-````**
+```
 
 - ```
 e -> e PLUS ID
@@ -96,27 +97,27 @@ The above is ambiguous. We can fix this:
 
 This is left associative as the left side is the recursive call and items lower in the parse tree are evaluated first.
 
-
 ## Algorithms for parsing
 
 ### Top-Down Parsing
 
 Pros:
+
 - Algorithm is simpler
 - Faster than bottom-up
 - Easier recovery
 
 Cons:
+
 - Not efficient on arbitrary grammars
 - Many grammars need to be re-written
 
 ---
 
-
-
 ### Bottom-Up Parsing
 
 Pros:
+
 - can handle grammars expressed more naturally
 - can encode precedence and associativity even if grammar is ambiguous
 
@@ -124,4 +125,3 @@ Cons:
 
 - algorithm is complicated
 - in many cases slower than top down
-

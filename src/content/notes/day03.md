@@ -1,8 +1,8 @@
 ---
 title: Day 3 - Lexical Analysis
 date: 2024-04-05
-prevNote: ../day2/
-nextNote: ../day4/
+prevNote: ../day02/
+nextNote: ../day04/
 ---
 
 # Lexical Analysis

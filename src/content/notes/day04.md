@@ -1,8 +1,8 @@
 ---
 title: Day 4 - Regex
 date: 2024-04-08
-prevNote: ../day3/
-nextNote: ../day5/
+prevNote: ../day03/
+nextNote: ../day05/
 ---
 
 # Day 4 - Regex

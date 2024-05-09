@@ -1,8 +1,8 @@
 ---
 title: Day 5 - TODO
 date: 2024-04-09
-prevNote: ../day4/
-nextNote: ../day6/
+prevNote: ../day04/
+nextNote: ../day06/
 ---
 
 # Day 5

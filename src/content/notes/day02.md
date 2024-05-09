@@ -1,8 +1,8 @@
 ---
 title: Day 2 - What is a Compiler
 date: 2024-04-03
-prevNote: ../day1/
-nextNote: ../day3/
+prevNote: ../day01/
+nextNote: ../day03/
 ---
 
 # What is a Compiler

@@ -1,8 +1,8 @@
 ---
 title: Day 8 - Ambiguity
 date: 2024-04-19
-prevNote: ../day7/
-nextNote: ../day9/
+prevNote: ../day07/
+nextNote: ../day09/
 ---
 
 # Day 8
@@ -51,7 +51,7 @@ AKA natural traversal. Left to right, bottom to top.
 ## Richer Grammars
 
 Go from top to bottom in the table by using non-terminals to represent the different levels of the grammar. By allowing each rule to evaluate to NUM if nothing else matches, we can encode order of operations into the grammar.
-![Table showing a grammar with order of operations prioritizing paren -> pow (^) -> term (* or /) -> expr (+ or -)](images/day8/rich-expr.png)
+![Table showing a grammar with order of operations prioritizing paren -> pow (^) -> term (* or /) -> expr (+ or -)](./images/day8/rich-expr.png)
 
 ```
 

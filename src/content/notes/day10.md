@@ -1,8 +1,8 @@
 ---
 title: Day 10 - Left Recursion & Lookahead
 date: 2024-04-24
-prevNote: ../day3/
-nextNote: ../day5/
+prevNote: ../day9/
+nextNote: ../day11/
 ---
 
 # Left Recursion & Lookahead
