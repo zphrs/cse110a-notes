@@ -1,159 +1,167 @@
 ---
 interface Props {
-  frontmatter: {
-    title: string
-    date: Date
-    nextNote?: string | undefined
-    prevNote?: string | undefined
-  }
+    frontmatter: {
+        title: string;
+        date?: Date;
+        nextNote?: string | undefined;
+        prevNote?: string | undefined;
+    };
 }
-import Layout from "./Layout.astro"
+import Layout from "./Layout.astro";
 // import { slide } from "astro:transitions"
-const { frontmatter } = Astro.props
-const { title, date: dateString, nextNote, prevNote } = frontmatter
+const { frontmatter } = Astro.props;
+const { title, date: dateString, nextNote, prevNote } = frontmatter;
 
-const date = new Date(dateString).toLocaleDateString("en-US", {
-  year: "numeric",
-  month: "long",
-  day: "numeric",
-})
+const date = dateString
+    ? new Date(dateString).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+      })
+    : null;
 
 const animForward = {
-  old: {
-    name: "slideInForward",
-    duration: "0.2s",
-    easing: "ease",
-    fillMode: "forwards",
-  },
-  new: {
-    name: "slideOutForward",
-    duration: "0.2s",
-    easing: "ease",
-    fillMode: "backwards",
-  },
-}
+    old: {
+        name: "slideInForward",
+        duration: "0.2s",
+        easing: "ease",
+        fillMode: "forwards",
+    },
+    new: {
+        name: "slideOutForward",
+        duration: "0.2s",
+        easing: "ease",
+        fillMode: "backwards",
+    },
+};
 
 const animBack = {
-  old: {
-    name: "slideInBack",
-    duration: "0.2s",
-    easing: "ease",
-    fillMode: "backwards",
-  },
-  new: {
-    name: "slideOutBack",
-    duration: "0.2s",
-    easing: "ease",
-    fillMode: "forwards",
-  },
-}
+    old: {
+        name: "slideInBack",
+        duration: "0.2s",
+        easing: "ease",
+        fillMode: "backwards",
+    },
+    new: {
+        name: "slideOutBack",
+        duration: "0.2s",
+        easing: "ease",
+        fillMode: "forwards",
+    },
+};
 
 let anim = {
-  forwards: animForward,
-  backwards: animBack,
-}
+    forwards: animForward,
+    backwards: animBack,
+};
 ---
 
 <Layout {title}>
-  <aside transition:animate={anim}>
-    <span class='date' transition:animate='fade'>{date}</span>
-    <h1 transition:animate='fade'>{title}</h1>
-    <div class='next-prev'>
-      {
-        prevNote ? (
-          <a class='prev' href={prevNote}>
-            ← prev class
-          </a>
-        ) : (
-          <span class='prev'>← prev note</span>
-        )
-      }
-      <a class='all' href=`${import.meta.env.BASE_URL}`>all notes</a>
+    <aside transition:animate={anim}>
+        {
+            date && (
+                <span class="date" transition:animate="fade">
+                    {date}
+                </span>
+            )
+        }
+        <h1 transition:animate="fade">{title}</h1>
+        <div class="next-prev">
+            {
+                prevNote ? (
+                    <a class="prev" href={prevNote}>
+                        ← prev class
+                    </a>
+                ) : (
+                    <span class="prev">← prev note</span>
+                )
+            }
+            <a class="all" href=`${import.meta.env.BASE_URL}`>all notes</a>
 
-      {
-        nextNote ? (
-          <a class='next' href={nextNote}>
-            next class →
-          </a>
-        ) : (
-          <span class='next'>next note →</span>
-        )
-      }
-    </div>
-  </aside>
-  <main transition:animate={anim}>
-    <slot />
-  </main>
+            {
+                nextNote ? (
+                    <a class="next" href={nextNote}>
+                        next class →
+                    </a>
+                ) : (
+                    <span class="next">next note →</span>
+                )
+            }
+        </div>
+    </aside>
+    <main transition:animate={anim}>
+        <slot />
+    </main>
 </Layout>
 <style>
-  @keyframes slideInBack {
-    from {
-      transform: translateX(-100%);
-      opacity: 0;
+    @keyframes slideInBack {
+        from {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
-    to {
-      transform: translateX(0);
-      opacity: 1;
+    @keyframes slideOutBack {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(100%);
+            opacity: 0;
+        }
     }
-  }
-  @keyframes slideOutBack {
-    from {
-      transform: translateX(0);
-      opacity: 1;
+    @keyframes slideInForward {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
     }
-    to {
-      transform: translateX(100%);
-      opacity: 0;
+    @keyframes slideOutForward {
+        from {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        to {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
     }
-  }
-  @keyframes slideInForward {
-    from {
-      transform: translateX(100%);
-      opacity: 0;
+    .date {
+        font-family: "Atkinson Hyperlegible";
+        margin-bottom: 0.5rem;
+        display: block;
+        color: var(--gray-60);
     }
-    to {
-      transform: translateX(0);
-      opacity: 1;
+    .next-prev {
+        display: grid;
+        justify-content: space-between;
+        grid-template-columns: 1fr 1fr 1fr;
+        margin: 1rem 0;
+        color: var(--gray-60);
     }
-  }
-  @keyframes slideOutForward {
-    from {
-      transform: translateX(0);
-      opacity: 1;
+    .next {
+        text-align: right;
+        grid-column: 3 / 4;
     }
-    to {
-      transform: translateX(-100%);
-      opacity: 0;
+    .prev {
+        grid-column: 1 / 2;
     }
-  }
-  .date {
-    font-family: "Atkinson Hyperlegible";
-    margin-bottom: 0.5rem;
-    display: block;
-    color: var(--gray-60);
-  }
-  .next-prev {
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 1rem 0;
-    color: var(--gray-60);
-  }
-  .next {
-    text-align: right;
-    grid-column: 3 / 4;
-  }
-  .prev {
-    grid-column: 1 / 2;
-  }
-  .all {
-    text-align: center;
-    grid-column: 2 / 3;
-  }
-  aside {
-    background-color: var(--gray-10);
-    padding: 1rem;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+    .all {
+        text-align: center;
+        grid-column: 2 / 3;
+    }
+    aside {
+        background-color: var(--gray-10);
+        padding: 1rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
 </style>

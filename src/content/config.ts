@@ -4,7 +4,7 @@ const noteCollection = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string().min(1),
-    date: z.date(),
+    date: z.date().optional(),
     nextNote: z.string().optional(),
     prevNote: z.string().optional(),
   }),
